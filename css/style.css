@@ -27,6 +27,12 @@ body{
   padding: 10px;
   background-color: #f5f5f1;
 }
+span {
+  float: left;
+  font-size: 0.5rem;
+  margin-left: 4%;
+  font-weight: bold;
+}
 .block .icon {
   width: 30%;
   min-width: 200px;

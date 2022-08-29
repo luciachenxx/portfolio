@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e6ba3ec3f9.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="block">
+        <!-- <i class="fa-solid fa-bullseye"></i> -->
+        <h3 class="fa-solid fa-bullseye">Machine GIFs</h3>
+        <form action="search">
+            <label>Search</label>
+            <input type="text" placeholder="please enter..." />
+            <input class="submit"type="submit" value="submit"/>
+        </form>
+    </div>
+    <h3>Result</h3>
+    <hr/>
+    <div class="result"></div>
+
+    <script>
+        var apiKey = 'zgTz7CNnC1mjygm0orT8hpRKsh9deJWv'
+        var query = 'cat'
+        var url = 'https://api.giphy.com/v1/gifs/search?api_key=' +
+            apiKey + '&limit=22' + '&q=' 
+
+        var form = document.querySelector('form')
+        var input = document.querySelector('input[type="text"]')
+        var result = document.querySelector('.result')
+
+        function search(e) {
+            e.preventDefault()
+            query = input.value;
+            makeRequest(query);
+        }
+
+        function createGif(gif, url) {
+            var item = document.createElement('div');
+            var link = document.createElement('a');
+            var img = document.createElement('img');
+
+            link.href = url;
+            img.src = gif;
+
+            result.appendChild(item);
+            item.appendChild(link);
+            link.appendChild(img);
+        }
+
+        function makeRequest(query) {
+            xhr = new XMLHttpRequest();
+
+            xhr.onload = function () {
+                var response = JSON.parse(this.responseText);
+                console.log(response)
+                response.data.map(function (gif) {
+                    createGif(gif.images.fixed_height_downsampled.url,
+                        gif.url
+                        )
+                })
+            };
+            xhr.open("GET", url + query, true);
+            xhr.send();
+        }
+        form.addEventListener("submit", search);
+    </script>
+
+</body>
+
+</html>
