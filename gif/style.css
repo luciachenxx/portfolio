@@ -28,7 +28,7 @@ input {
     cursor: pointer;
 }
 
-input:hover {
+input:focus {
     border-radius: 10px;
     transition-duration: 1.5s;
 }
