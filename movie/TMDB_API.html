@@ -18,10 +18,9 @@
         <input class="submit" type="submit" value="submit" > 
     </form>
     <div class="container">
-        <h3>OMDb Result</h3>
+        <!-- <h3>OMDb Result</h3>
         <div class="omdb-result">
-
-        </div>
+        </div>  -->
 
         <h3>TMDb Result</h3>
         <div class="tmdb-result">
@@ -66,7 +65,7 @@
             makeORequest(searchTitle);
             input.value = "";
         }
-        // for OMDb
+        //for OMDb
         var apiKeyO = "e22d4e41";
         var urlO = 'http://www.omdbapi.com/?apikey=' +
             apiKeyO + '&type="movie' + '&s=';

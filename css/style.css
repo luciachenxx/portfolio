@@ -74,6 +74,7 @@ span {
 .b {
   width: 70%;
   height: 250px;
+  margin-left: 14%;
 }
 h5 {
   margin: 1rem ;
@@ -131,6 +132,7 @@ h5 {
 @media screen and (max-width:800px) {
   .b, .c {
     width: 100%;
+    margin-left: -1%;
   }
 
   .d, .g, .e {
